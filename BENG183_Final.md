@@ -36,5 +36,15 @@ A brief diagram to show the general mapping process
 ### Generating RNA-DNA Contact Information
 Generating and visualizing the RNA-DNA contact information has a very similar pipeline to that of Hi-C which generates data for DNA-DNA interactions. We need to begin with normalizing our data so that when we visualize it, the correct values are being displayed. The first step is to generate the observed contact matrix O[i,j] where every entry in the matrix contains the observed read counts between region i and region j. Next the correction matrix E[i,j] is made, where each entry contains the sum of corrections for the read pairs between entry i and j. Using these two matrices we can generate our final normalized matrix N[i,j] which is calculated N[i,j] = O[i,j]/E[i,j].
 
-Once our data is normalized and contains accurate values, we are ready to visualize the data. The most common form of visualization for RNA-DNA contacts is a heat map where each bin N[i,j] is colored more red depending on how large the value is. Once the heatmap has been generated, it is very easy to identify possible topological domains (TADs). On the heatmap these TADs appear as red triangles but their exact beginning and end can be hard to decipher. Computationally the beginning and end of the TADs can be identified using a combination of a directionality index and a hidden markov model. 
+Once our data is normalized and contains accurate values, we are ready to visualize the data. The most common form of visualization for RNA-DNA contacts is a heat map where each bin N[i,j] is colored more red depending on how large the value is. Once the heatmap has been generated, it is very easy to identify possible topological domains (TADs). On the heatmap these TADs appear as red triangles but their exact beginning and end can be hard to decipher. Computationally the beginning and end of the TADs can be identified using a combination of a directionality index and a hidden markov model.
+
+![Figure2](https://github.com/tgroth97/BENG183/blob/master/contact_matrix.png)
+
+An example of what a RNA-DNA heatmap looks like compared to a DNA-DNA heatmap generated from Hi-C data.
+
+
+
+Sources:
+
+Images acquired from https://cdn.elifesciences.org/articles/27024/elife-27024-v2.pdf
 
