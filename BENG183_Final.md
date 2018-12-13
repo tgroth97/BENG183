@@ -28,6 +28,9 @@ GRID-seq: To precisely remove the linker sequence from each read, MmeI motifs we
 ### Map to the Reference
 When mapping back the generated sequences, the RNA and DNA sequences must be dealt with separately. DNA can be mapped normally to the genome as would be done when working with Hi-C data. RNA on the other hand could have gone through post-translational modifications and is dervied from mRNA so must be mapped against the transcriptome. Due to these differences the tools mentioned have different work arounds for these. CHAR-seq and GRID-seq both use bowtie2 as their aligner. CHAR-seq focuses on forcing sense strandness to preserve RNA information. GRID-seq uses the -local flag with bowtie2 to map short reads which will return a large amount of mapping but loses out in specficity. MARGI uses STAR which is an aligner that is aware of splicing and can align to the transcriptome accordingly. 
 
+![Figure1](https://github.com/tgroth97/BENG183/blob/master/mapping.png)
+
+A brief diagram to show the general mapping process
 
 
 ### Generating RNA-DNA Contact Information
