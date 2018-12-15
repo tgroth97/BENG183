@@ -25,6 +25,8 @@ CHAR-seq: RNA and DNA portions of each read are identified and split by a custom
 
 GRID-seq: To precisely remove the linker sequence from each read, MmeI motifs were used for defining linker boundaries. Linker orientation also dictated whether a given read at each end was originated from RNA or genomic DNA. raw reads clipped at MmeI motifs to produce paired DNA and RNA read mates ranging from 18 bp to 23 bp.
 
+MARGI: The linker sequence was designed so that the DNA and RNA portions of the reads were on the appropriate sides according to a specfic primer of the linker. In the middle of the linker sequence is a BamHI restriction site that helps differentiate the two sides of the linker sequence. Using the restriction site and the primers that the RNA and DNA are associated, the reads can be separated into their according libraries.
+
 ### Map to the Reference
 When mapping back the generated sequences, the RNA and DNA sequences must be dealt with separately. DNA can be mapped normally to the genome as would be done when working with Hi-C data. RNA on the other hand could have gone through post-translational modifications and is dervied from mRNA so must be mapped against the transcriptome. Due to these differences the tools mentioned have different work arounds for these. CHAR-seq and GRID-seq both use bowtie2 as their aligner. CHAR-seq focuses on forcing sense strandness to preserve RNA information. GRID-seq uses the -local flag with bowtie2 to map short reads which will return a large amount of mapping but loses out in specficity. MARGI uses STAR which is an aligner that is aware of splicing and can align to the transcriptome accordingly. 
 
@@ -46,5 +48,8 @@ An example of what a RNA-DNA heatmap looks like compared to a DNA-DNA heatmap ge
 
 Sources:
 
-Images acquired from https://cdn.elifesciences.org/articles/27024/elife-27024-v2.pdf
+https://europepmc.org/articles/PMC5953555
 
+https://cdn.elifesciences.org/articles/27024/elife-27024-v2.pdf
+
+https://www.cell.com/current-biology/fulltext/S0960-9822(17)30011-8
